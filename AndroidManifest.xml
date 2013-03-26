@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.cacodaemon.openmct"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyTheme" >
+        <activity
+            android:name="de.cacodaemon.openmct.StartupActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="de.cacodaemon.openmct.EvaluateTestActivity"
+            android:label="@string/title_activity_evaluate_test"
+            android:parentActivityName="de.cacodaemon.openmct.StartupActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.cacodaemon.openmct.StartupActivity" />
+        </activity>
+        <activity
+            android:name="de.cacodaemon.openmct.TestActivity"
+            android:label="@string/title_activity_test"
+            android:parentActivityName="de.cacodaemon.openmct.StartupActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.cacodaemon.openmct.StartupActivity" />
+        </activity>
+        <activity
+            android:name="de.cacodaemon.openmct.DownloadTest"
+            android:label="@string/title_activity_download_test"
+            android:parentActivityName="de.cacodaemon.openmct.StartupActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.cacodaemon.openmct.StartupActivity" />
+        </activity>
+        <activity
+            android:name="de.cacodaemon.openmct.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="de.cacodaemon.openmct.StartupActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.cacodaemon.openmct.StartupActivity" />
+        </activity>
+    </application>
+
+</manifest>

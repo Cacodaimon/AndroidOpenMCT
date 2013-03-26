@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EvaluateTestActivity" >
+
+    <TextView
+        android:id="@+id/textViewPassTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="196dp"
+        android:layout_marginBottom="96dp"
+        android:textIsSelectable="false"
+        android:textAppearance="@style/TestTitle" />
+
+    <RatingBar
+        android:id="@+id/ratingBarTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:isIndicator="true"
+        android:layout_marginTop="54dp" />
+
+    <Button
+        android:id="@+id/buttonEvaluateTryAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textViewPassTest"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="86dp"
+        android:text="@string/EvaluateTryAgain" />
+
+</RelativeLayout>

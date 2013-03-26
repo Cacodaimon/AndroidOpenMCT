@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/de/cacodaemon/openmct/AboutActivity.java=UTF-8
+encoding//src/de/cacodaemon/openmct/BaseActivity.java=UTF-8
+encoding//src/de/cacodaemon/openmct/TestActivity.java=UTF-8
+encoding//src/de/cacodaemon/openmct/gui/QuestionTag.java=UTF-8
+encoding//src/de/cacodaemon/openmct/gui/SteppedGuiBuilder.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/ITestEvaluator.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/ITestLoader.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/JsonLoader.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/Question.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/QuestionType.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/Test.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/TestEvaluator.java=UTF-8
+encoding//src/de/cacodaemon/openmct/structure/test/MockLoader.java=UTF-8
