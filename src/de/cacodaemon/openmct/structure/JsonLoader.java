@@ -39,28 +39,7 @@ public class JsonLoader implements ITestLoader {
 			JSONArray jsonQuestions = jsonTest.getJSONArray("questions");
 
 			for (int i = 0; i < jsonQuestions.length(); i++) {
-				JSONObject jsonQuestion = jsonQuestions.getJSONObject(i);
-
-				Question question = new Question(
-						jsonQuestion.getString("title"),
-						jsonQuestion.getString("text"),
-						new ArrayList<String>(), new ArrayList<Boolean>(),
-						jsonQuestion.optString("answerDescription"),
-						jsonQuestion.optString("hint"));
-
-				JSONArray options = jsonQuestion.getJSONArray("options");
-				for (int j = 0; j < options.length(); j++) {
-					question.getOptions().add(options.getString(j));
-				}
-
-				JSONArray rightAnswers = jsonQuestion
-						.getJSONArray("rightAnswers");
-				for (int j = 0; j < rightAnswers.length(); j++) {
-					question.getRightAnswers().add(rightAnswers.getBoolean(j));
-					question.getUserAnswers().add(false);
-				}
-
-				test.getQuestions().add(question);
+				test.getQuestions().add(loadQuestion(jsonQuestions.getJSONObject(i)));
 
 			}
 
@@ -69,6 +48,29 @@ public class JsonLoader implements ITestLoader {
 		}
 	}
 
+	protected Question loadQuestion(JSONObject jsonQuestion) throws JSONException {
+		Question question = new Question(
+				jsonQuestion.getString("title"),
+				jsonQuestion.getString("text"),
+				new ArrayList<String>(), new ArrayList<Boolean>(),
+				jsonQuestion.optString("answerDescription"),
+				jsonQuestion.optString("hint"));
+
+		JSONArray options = jsonQuestion.getJSONArray("options");
+		for (int j = 0; j < options.length(); j++) {
+			question.getOptions().add(options.getString(j));
+		}
+
+		JSONArray rightAnswers = jsonQuestion
+				.getJSONArray("rightAnswers");
+		for (int j = 0; j < rightAnswers.length(); j++) {
+			question.getRightAnswers().add(rightAnswers.getBoolean(j));
+			question.getUserAnswers().add(false);
+		}
+		
+		return question;
+	}
+	
 	/**
 	 * Helper, converting a FileInputStream into a string.
 	 * 

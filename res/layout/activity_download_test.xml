@@ -22,7 +22,7 @@
         android:ems="10"
         android:hint="@string/hint_download_test_url"
         android:inputType="textUri"
-        android:text="http://www.cacodaemon.de/demos/open_mct/OCJA.mct" />
+        android:text="http://www.cacodaemon.de/demos/open_mct/PHP.mct" />
 
     <Button
         android:id="@+id/buttonDownloadTest"

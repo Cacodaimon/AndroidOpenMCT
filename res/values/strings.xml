@@ -2,6 +2,7 @@
 <resources>
 
 	<string name="about_text">OpenMCT is a open source multiple choice test app.</string>
+	<string name="about_github">https://github.com/Cacodaimon/AndroidOpenMCT</string>
 	<string name="app_name">OpenMCT</string>
 	<string name="button_download_test_url">Download</string>
 	<string name="deleted_test"> has been deleted!</string>
