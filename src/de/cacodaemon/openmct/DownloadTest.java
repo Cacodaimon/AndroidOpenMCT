@@ -47,6 +47,10 @@ public class DownloadTest extends BaseActivity {
 				finish();
 			} else {
 				showToastLong(R.string.download_error);
+				getButton(R.id.buttonDownloadTest).setEnabled(true);
+				getEditText(R.id.editTextUrl).setEnabled(true);
+				getProgressBar(R.id.progressBarDownload).setVisibility(
+						View.INVISIBLE);
 			}
 		}
 	}
