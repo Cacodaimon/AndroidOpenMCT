@@ -128,7 +128,6 @@ public class StartupActivity extends BaseActivity {
 			String fileName = getListView(R.id.listViewTests)
 					.getItemAtPosition(position).toString();
 
-			showToastLong(R.string.starting_test);
 			Intent intent = new Intent(StartupActivity.this, TestActivity.class);
 			intent.putExtra("FILE_NAME", fileName);
 			startActivity(intent);
