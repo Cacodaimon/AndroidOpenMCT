@@ -1,10 +1,16 @@
 package de.cacodaemon.openmct;
 
+import java.util.List;
+
+import de.cacodaemon.openmct.structure.Question;
 import de.cacodaemon.openmct.structure.Test;
 import de.cacodaemon.openmct.structure.TestEvaluator;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class EvaluateTestActivity extends BaseActivity {
 	protected Test test;
@@ -25,6 +31,28 @@ public class EvaluateTestActivity extends BaseActivity {
 
 		getButton(R.id.buttonEvaluateTryAgain).setOnClickListener(
 				onTryAgainClick);
+
+		try {
+			List<Question> questions = getTest().getQuestions();
+			ListView listView = getListView(R.id.listViewTestResult);
+
+			listView.setAdapter(new ArrayAdapter<Question>(
+					getApplicationContext(),
+					android.R.layout.simple_list_item_checked,
+					android.R.id.text1, questions) {
+				public boolean isEnabled(int position) {
+					return false;
+				}
+			});
+
+			for (int position = 0; position < questions.size(); position++) {
+				listView.setItemChecked(position, evaluator
+						.isQuestionRight((Question) listView
+								.getItemAtPosition(position)));
+			}
+		} catch (Exception e) {
+			Log.v("OpenMCT", e.toString());
+		}
 	}
 
 	protected Test getTest() {

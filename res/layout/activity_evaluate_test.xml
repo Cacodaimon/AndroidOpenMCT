@@ -29,4 +29,17 @@
         android:layout_centerHorizontal="true"
         android:text="@string/EvaluateTryAgain" />
 
+    <ListView
+        android:id="@+id/listViewTestResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonEvaluateTryAgain"
+        android:layout_below="@+id/textViewPassTest"
+        android:layout_centerHorizontal="true"
+        android:choiceMode="multipleChoice"
+        android:clickable="false"
+        android:longClickable="false" >
+
+    </ListView>
+
 </RelativeLayout>

@@ -19,18 +19,7 @@ public class TestEvaluator implements ITestEvaluator {
 
 	public void evaluate() {
 		for (Question question : test.getQuestions()) {
-			int i = 0;
-			int questionRightAnswers = 0;
-			int questionPassedAnswers = 0;
-			for (Boolean answer : question.getRightAnswers()) {
-				questionRightAnswers++;
-				if (question.getUserAnswers().get(i) == answer) {
-					questionPassedAnswers++;
-				}
-				i++;
-			}
-
-			if (questionRightAnswers == questionPassedAnswers) {
+			if (isQuestionRight(question)) {
 				sumQuestionsPassed++;
 			}
 		}
@@ -49,6 +38,23 @@ public class TestEvaluator implements ITestEvaluator {
 				.floor(((double) sumQuestionsPassed / (double) sumQuestions) * 100.0);
 	}
 
+	public boolean isQuestionRight(Question question) {
+		int i = 0;
+		int rightAnswers = 0;
+		int passedAnswers = 0;
+		
+		for (Boolean answer : question.getRightAnswers()) {
+			rightAnswers++;
+			if (question.getUserAnswers().get(i) == answer) {
+				passedAnswers++;
+			}
+			i++;
+		}
+		
+		return rightAnswers == passedAnswers;
+	}
+	
+	
 	@SuppressLint("DefaultLocale")
 	@Override
 	public String toString() {

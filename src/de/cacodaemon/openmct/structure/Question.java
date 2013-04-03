@@ -158,4 +158,9 @@ public class Question implements Serializable {
 			return QuestionType.MULTIPLE;
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return title;
+	}
 }

@@ -40,4 +40,11 @@ public interface ITestEvaluator {
 	 * @return
 	 */
 	int getPercentagePassed();
+
+	/**
+	 * Determines if the given question is answered right or wrong.
+	 * 
+	 * @return
+	 */
+	boolean isQuestionRight(Question question);
 }
