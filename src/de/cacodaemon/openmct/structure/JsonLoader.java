@@ -40,11 +40,11 @@ public class JsonLoader implements ITestLoader {
 
 			for (int i = 0; i < jsonQuestions.length(); i++) {
 				test.getQuestions().add(loadQuestion(jsonQuestions.getJSONObject(i)));
-
 			}
 
 		} catch (JSONException e) {
 			Log.v("OpenMCT", e.getMessage());
+			throw e;
 		}
 	}
 

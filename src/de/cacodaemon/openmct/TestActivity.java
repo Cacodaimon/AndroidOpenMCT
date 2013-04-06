@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 public class TestActivity extends BaseActivity {
 	protected Test test;
@@ -19,41 +21,38 @@ public class TestActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_test);
 
-		getImageButton(R.id.imageButtonNext).setOnClickListener(
-				onButtonNextClick);
-		getImageButton(R.id.imageButtonPervious).setOnClickListener(
-				onButtonPerviousClick);
+		ImageButton buttonNext = getImageButton(R.id.imageButtonNext);
+		buttonNext.setOnClickListener(onButtonNextClick);
+		ImageButton buttonPervious = getImageButton(R.id.imageButtonPervious);
+		buttonPervious.setOnClickListener(onButtonPerviousClick);
+		Button buttonHint = getButton(R.id.buttonHint);
+		buttonHint.setOnClickListener(onButtonFinishClick);
 		getButton(R.id.buttonFinish).setOnClickListener(onButtonFinishClick);
-		getButton(R.id.buttonHint).setOnClickListener(onButtonHintClick);
 
 		String fileName = getIntent().getStringExtra("FILE_NAME");
-		JsonLoader loader = null;
-		try {
-			loader = new JsonLoader(openFileInput(fileName));
+        try {
+        	JsonLoader loader = new JsonLoader(openFileInput(fileName));
 			loader.load();
 
 			builder = new SteppedGuiBuilder(test = loader.getTest(),
 					getApplicationContext(),
 					getLinearLayout(R.id.linearLayoutTest),
-					getImageButton(R.id.imageButtonNext),
-					getImageButton(R.id.imageButtonPervious),
-					getButton(R.id.buttonHint));
+					buttonNext,
+					buttonPervious,
+					buttonHint);
 			builder.build();
 			setTitle(getTitle() + " - " + test.getTitle());
 		} catch (Exception e) {
 			Log.v("OpenMCT", e.getMessage());
-			e.printStackTrace();
+			showToastLong(R.string.test_load_error);
+			finish();
 		}
-
 	}
 
 	OnClickListener onButtonNextClick = new OnClickListener() {
 
 		@Override
 		public void onClick(View arg0) {
-			// TODO Auto-generated method stub
-			Log.v("OpenMCT", (builder == null) + "NULL?");
-			Log.v("OpenMCT", builder.getCurrent() + "CURR");
 			if (builder.setCurrent(builder.getCurrent() + 1)) {
 				builder.build();
 			}
@@ -65,9 +64,6 @@ public class TestActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View arg0) {
-			// TODO Auto-generated method stub
-			Log.v("OpenMCT", (builder == null) + "NULL?");
-			Log.v("OpenMCT", builder.getCurrent() + "CURR");
 			if (builder.setCurrent(builder.getCurrent() - 1)) {
 				builder.build();
 			}

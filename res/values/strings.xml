@@ -3,6 +3,7 @@
 
 	<string name="about_text">OpenMCT is a open source multiple choice test app.</string>
 	<string name="about_github">https://github.com/Cacodaimon/AndroidOpenMCT</string>
+	<string name="about_iconic">http://somerandomdude.com/work/iconic/</string>
 	<string name="app_name">OpenMCT</string>
 	<string name="button_download_test_url">Download</string>
 	<string name="deleted_test"> has been deleted!</string>
@@ -27,5 +28,6 @@
 	<string name="test_pervious">Pervious</string>
 	<string name="test_finish">Finish</string>
 	<string name="test_hint">Hint</string>
+	<string name="test_load_error">Error opening this test.</string>
 
 </resources>

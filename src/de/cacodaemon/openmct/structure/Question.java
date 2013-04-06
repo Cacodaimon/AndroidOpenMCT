@@ -32,7 +32,7 @@ public class Question implements Serializable {
 	protected final String answerDescription;
 
 	/**
-	 * A optional hint.
+	 * A optional hint helping the user during the test.
 	 */
 	protected final String hint;
 
@@ -150,15 +150,15 @@ public class Question implements Serializable {
 		}
 
 		switch (answerCount) {
-		case 0:
-			return QuestionType.TRICK;
-		case 1:
-			return QuestionType.SINGLE;
-		default:
-			return QuestionType.MULTIPLE;
+			case 0:
+				return QuestionType.TRICK;
+			case 1:
+				return QuestionType.SINGLE;
+			default:
+				return QuestionType.MULTIPLE;
 		}
 	}
-	
+
 	@Override
 	public String toString() {
 		return title;

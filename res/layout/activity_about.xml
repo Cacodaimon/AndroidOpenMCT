@@ -4,6 +4,34 @@
     android:layout_height="match_parent"
     tools:context=".AboutActivity" >
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/img_frok_me_on_github" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="22dp"
+        android:autoLink="web"
+        android:text="@string/about_github" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="22dp"
+        android:autoLink="web"
+        android:text="@string/about_iconic" />
+    
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -11,13 +39,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="@string/about_text" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:autoLink="web"
-        android:text="@string/about_github" />
-
+    
 </RelativeLayout>

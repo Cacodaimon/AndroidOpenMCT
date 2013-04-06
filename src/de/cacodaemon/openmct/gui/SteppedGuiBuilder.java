@@ -1,7 +1,6 @@
 package de.cacodaemon.openmct.gui;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
@@ -72,17 +71,14 @@ public class SteppedGuiBuilder {
 		layout.removeAllViews();
 
 		if (current < 0) {
-			buildHeader();
+			buildWelcome();
 			hint.setVisibility(View.INVISIBLE);
 			return;
 		}
 
 		Question currentQuestion = test.getQuestions().get(current);
-
-		Log.v("OpenMCT", "HINT: " + currentQuestion.getAnswerDescription());
-
-		hint.setVisibility(!currentQuestion.getHint().equals("") ? View.VISIBLE
-				: View.INVISIBLE);
+		hint.setVisibility(currentQuestion.getHint().equals("") ? View.INVISIBLE
+				: View.VISIBLE);
 		buildQuestion(currentQuestion);
 	}
 
@@ -116,7 +112,7 @@ public class SteppedGuiBuilder {
 	 * Builds the question header including title and description. The header
 	 * will be appended to <code>layout</code>.
 	 */
-	protected void buildHeader() {
+	protected void buildWelcome() {
 		TextView title = new TextView(context);
 		title.setText(test.getTitle());
 		title.setTextAppearance(context, R.style.TestTitle);
