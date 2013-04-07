@@ -43,23 +43,31 @@ public class SteppedGuiBuilder {
 	 * <code>buildFooter</code>.
 	 */
 	protected OnClickListener onFinishClick;
-
+	/**
+	 * View which should be disabled if the last question of the test is selected.
+	 */
 	protected View next;
-	protected View pervious;
+	/**
+	 * View which should be disabled if the first question of the test is selected.
+	 */
+	protected View previous;
+	/**
+	 * View which should be hidden if the current question has no hint text.
+	 */
 	protected View hint;
 	/**
-	 * A simple counter used for generating unique id's. Should no be used
+	 * A simple counter used for generating unique id's. Should not be used
 	 * directly, use <code>getId()</code> instead.
 	 */
 	private static int idCounter;
 
 	public SteppedGuiBuilder(Test test, Context context, LinearLayout layout,
-			View next, View pervious, View hint) {
+			View next, View previous, View hint) {
 		this.test = test;
 		this.context = context;
 		this.layout = layout;
 		this.next = next;
-		this.pervious = pervious;
+		this.previous = previous;
 		this.hint = hint;
 		setCurrent(-1);
 	}
@@ -72,14 +80,10 @@ public class SteppedGuiBuilder {
 
 		if (current < 0) {
 			buildWelcome();
-			hint.setVisibility(View.INVISIBLE);
 			return;
 		}
 
-		Question currentQuestion = test.getQuestions().get(current);
-		hint.setVisibility(currentQuestion.getHint().equals("") ? View.INVISIBLE
-				: View.VISIBLE);
-		buildQuestion(currentQuestion);
+		buildQuestion();
 	}
 
 	/**
@@ -100,7 +104,7 @@ public class SteppedGuiBuilder {
 		current = index;
 
 		next.setEnabled(current < test.getQuestions().size() - 1);
-		pervious.setEnabled(current > -1);
+		previous.setEnabled(current > -1);
 		return true;
 	}
 
@@ -122,6 +126,8 @@ public class SteppedGuiBuilder {
 		description.setText(test.getDescription());
 		description.setTextAppearance(context, R.style.TestDescription);
 		layout.addView(description);
+		
+        hint.setVisibility(View.INVISIBLE);
 	}
 
 	/**
@@ -130,7 +136,11 @@ public class SteppedGuiBuilder {
 	 * 
 	 * @param question
 	 */
-	protected void buildQuestion(Question question) {
+	protected void buildQuestion() {
+		Question question = test.getQuestions().get(current);
+		hint.setVisibility(question.getHint().equals("") ? View.INVISIBLE
+				: View.VISIBLE);
+		
 		buildQuestionHeader(question);
 
 		switch (question.getType()) {

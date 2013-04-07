@@ -26,7 +26,7 @@ public class TestActivity extends BaseActivity {
 		ImageButton buttonPervious = getImageButton(R.id.imageButtonPervious);
 		buttonPervious.setOnClickListener(onButtonPerviousClick);
 		Button buttonHint = getButton(R.id.buttonHint);
-		buttonHint.setOnClickListener(onButtonFinishClick);
+		buttonHint.setOnClickListener(onButtonHintClick);
 		getButton(R.id.buttonFinish).setOnClickListener(onButtonFinishClick);
 
 		String fileName = getIntent().getStringExtra("FILE_NAME");

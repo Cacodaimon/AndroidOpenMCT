@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -102,6 +103,16 @@ public abstract class BaseActivity extends FragmentActivity {
 		return (RatingBar) findViewById(id);
 	}
 
+	/**
+	 * Gets a <code>ImageView</code> by the given id.
+	 * 
+	 * @param id
+	 * @return
+	 */
+	protected ImageView getImageView(int id) {
+		return (ImageView) findViewById(id);
+	}
+	
 	/**
 	 * Gets a <code>ListView</code> by the given id.
 	 * 

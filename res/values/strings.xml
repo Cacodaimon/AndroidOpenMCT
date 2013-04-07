@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="about_text">OpenMCT is a open source multiple choice test app.</string>
+	<string name="about_text">OpenMCT is a open source multiple choice test app by Guido Krömer. My blog: http://www.cacodaemon.de. This App uses the Iconic icons from: http://somerandomdude.com/work/iconic/</string>
 	<string name="about_github">https://github.com/Cacodaimon/AndroidOpenMCT</string>
-	<string name="about_iconic">http://somerandomdude.com/work/iconic/</string>
+	<string name="about_github_fork">Fork me on GitHub!</string>
 	<string name="app_name">OpenMCT</string>
 	<string name="button_download_test_url">Download</string>
 	<string name="deleted_test"> has been deleted!</string>
